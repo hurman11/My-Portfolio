@@ -166,4 +166,7 @@ header.hidden {
     .header-left span {
         font-size: 11px;
     }
+    /* Hide CTA on mobile to prevent overlap with centered menu */
+    .lets-talk {
+        display: none;
 }
