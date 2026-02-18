@@ -1,0 +1,220 @@
+/* ============================================
+   PAGE STYLES — About & Content Pages
+   ============================================ */
+
+/* --- Page Container --- */
+.page-container {
+    padding: 160px 40px 80px;
+    min-height: 100vh;
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+/* --- Page Title --- */
+.page-title {
+    font-family: var(--font-heading);
+    font-size: clamp(48px, 8vw, 100px);
+    line-height: 0.9;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    margin-bottom: 80px;
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+.page-title span {
+    display: inline-block;
+    /* For GSAP reveal */
+}
+
+/* --- Content Block --- */
+.content-block {
+    max-width: 800px;
+    margin-bottom: 80px;
+}
+
+.content-block p {
+    font-family: var(--font-body);
+    font-size: clamp(18px, 1.5vw, 24px);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: var(--text-secondary);
+}
+
+/* --- Section Label --- */
+.section-label {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: block;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    position: relative;
+    padding-left: 16px;
+}
+
+.section-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+/* --- Experience List --- */
+.experience-list {
+    list-style: none;
+    font-family: var(--font-body);
+}
+
+.experience-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    border-top: 1px solid var(--border-color);
+    transition: padding-left 0.4s var(--ease-out),
+        background-color 0.3s ease;
+}
+
+.experience-item:last-child {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.experience-item:hover {
+    padding-left: 12px;
+}
+
+.experience-item .company {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    min-width: 200px;
+}
+
+.experience-item .role {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-muted);
+    flex: 1;
+    text-align: center;
+}
+
+.experience-item .period {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-dark);
+    min-width: 120px;
+    text-align: right;
+}
+
+/* --- Skills Section --- */
+.skills-section {
+    margin-top: 80px;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.skill-tag {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 8px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 100px;
+    transition: all 0.3s var(--ease-out);
+}
+
+.skill-tag:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* --- Values / Philosophy Section --- */
+.values-section {
+    margin-top: 80px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.value-card {
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    transition: border-color 0.3s ease, transform 0.4s var(--ease-out);
+}
+
+.value-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+.value-card h4 {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.value-card p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ============================================
+   RESPONSIVE — Pages
+   ============================================ */
+@media (max-width: 809px) {
+    .page-container {
+        padding: 120px 20px 60px;
+    }
+
+    .page-title {
+        margin-bottom: 50px;
+    }
+
+    .content-block {
+        margin-bottom: 50px;
+    }
+
+    .experience-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .experience-item .company,
+    .experience-item .role,
+    .experience-item .period {
+        text-align: left;
+        min-width: auto;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}

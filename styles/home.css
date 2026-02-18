@@ -1,0 +1,429 @@
+/* ============================================
+   HOME PAGE — Hero, Projects, Sections
+   ============================================ */
+
+/* --- Hero Section --- */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 120px 40px 60px;
+    overflow: hidden;
+}
+
+/* Animated gradient background for hero */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 50%,
+            rgba(103, 90, 197, 0.08) 0%,
+            transparent 50%),
+        radial-gradient(ellipse at 70% 50%,
+            rgba(103, 90, 197, 0.05) 0%,
+            transparent 50%);
+    animation: heroGradient 20s ease infinite alternate;
+    z-index: 0;
+}
+
+@keyframes heroGradient {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(-5%, 3%) rotate(3deg);
+    }
+
+    100% {
+        transform: translate(3%, -2%) rotate(-2deg);
+    }
+}
+
+/* --- Hero Title --- */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(48px, 8vw, 120px);
+    line-height: 0.9;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.hero-title .line {
+    display: block;
+    overflow: hidden;
+    padding: 4px 0;
+}
+
+.hero-title .line span {
+    display: inline-block;
+    /* For GSAP translateY reveal */
+}
+
+/* --- Hero Subtitle --- */
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.2vw, 18px);
+    font-weight: 400;
+    color: var(--text-muted);
+    max-width: 600px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* --- Hero Footer Bar --- */
+.hero-footer {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 1;
+}
+
+.hero-footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hero-footer span {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+.hero-scroll-cue {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-scroll-cue .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: var(--text-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-scroll-cue .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--text-primary);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+    0% {
+        top: -100%;
+    }
+
+    50% {
+        top: 0;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+/* ============================================
+   PROJECT CARDS — Full-bleed sections
+   ============================================ */
+.projects {
+    padding: 0;
+    position: relative;
+}
+
+.project-card {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg-card);
+    cursor: none;
+}
+
+.project-card a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+}
+
+/* --- Project Background Image --- */
+.project-image {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.project-image img,
+.project-image .project-gradient {
+    width: 130%;
+    height: 121%;
+    position: absolute;
+    top: -30%;
+    left: -15%;
+    object-fit: cover;
+    filter: blur(8px);
+    transition: transform 1.2s var(--ease-smooth);
+}
+
+/* Gradient placeholder when no image */
+.project-gradient {
+    opacity: 0.8;
+}
+
+.project-card:hover .project-image img,
+.project-card:hover .project-image .project-gradient {
+    transform: scale(1.03);
+}
+
+/* --- Project Info Overlay --- */
+.project-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 60px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.6) 0%,
+            transparent 50%);
+}
+
+.project-info .project-label {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.project-info h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(24px, 3vw, 42px);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.project-info p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 400px;
+}
+
+/* ============================================
+   ABOUT PREVIEW SECTION (on Home page)
+   ============================================ */
+.about-preview {
+    padding: 120px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+}
+
+.about-preview-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1360px;
+    width: 100%;
+}
+
+.about-preview-image {
+    width: 325px;
+    flex-shrink: 0;
+    aspect-ratio: 0.67;
+    border-radius: 240px;
+    overflow: hidden;
+    position: relative;
+}
+
+.about-preview-image img {
+    width: 100%;
+    height: calc(100% + 240px);
+    object-fit: cover;
+    position: absolute;
+    top: -120px;
+}
+
+.about-preview-image .placeholder-avatar {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent), #8b7fe8, #a78bfa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-preview-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.about-preview-text h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.about-preview-text p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 500px;
+}
+
+.about-preview-text .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-ui);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    transition: gap 0.3s var(--ease-out);
+}
+
+.about-preview-text .read-more:hover {
+    gap: 14px;
+}
+
+.about-preview-text .read-more .arrow {
+    font-size: 18px;
+    transition: transform 0.3s var(--ease-out);
+}
+
+.about-preview-text .read-more:hover .arrow {
+    transform: translateX(4px);
+}
+
+/* ============================================
+   SECTION TITLES — Reusable
+   ============================================ */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 1360px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+
+.section-header span {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ============================================
+   RESPONSIVE — Home Page
+   ============================================ */
+@media (max-width: 809px) {
+    .hero {
+        min-height: 70vh;
+        padding: 100px 20px 60px;
+        gap: 80px;
+    }
+
+    .hero-footer {
+        padding: 0 20px;
+        bottom: 30px;
+    }
+
+    .project-card {
+        height: 60vh;
+    }
+
+    .project-info {
+        padding: 24px;
+    }
+
+    .about-preview {
+        padding: 60px 20px;
+    }
+
+    .about-preview-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about-preview-image {
+        width: 100%;
+        max-width: 325px;
+        align-self: center;
+    }
+}
+
+@media (min-width: 1920px) {
+    .project-card {
+        height: 116vh;
+    }
+}

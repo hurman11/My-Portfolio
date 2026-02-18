@@ -1,0 +1,180 @@
+/* ============================================
+   FOOTER STYLES — Profile & Social Links
+   ============================================ */
+
+footer {
+    padding: 80px 40px 40px;
+    position: relative;
+}
+
+/* --- Divider Line --- */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 40px;
+    right: 40px;
+    height: 1px;
+    background: var(--border-color);
+}
+
+/* --- Footer Layout --- */
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+/* --- Profile Section --- */
+.footer-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #8b7fe8);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footer-profile p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 300px;
+    line-height: 1.5;
+}
+
+/* --- Footer CTA --- */
+.footer-cta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-cta a {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+}
+
+.footer-cta a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.4s var(--ease-out);
+}
+
+.footer-cta a:hover {
+    color: var(--accent);
+}
+
+.footer-cta a:hover::after {
+    width: 100%;
+}
+
+/* --- Social Links --- */
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.footer-links a {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--text-primary);
+    transition: width 0.4s var(--ease-out);
+}
+
+.footer-links a:hover {
+    color: var(--text-primary);
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+/* --- Footer Bottom Row --- */
+.footer-bottom {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+}
+
+.footer-bottom span {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: var(--text-dark);
+    letter-spacing: 0.02em;
+}
+
+/* --- Responsive --- */
+@media (max-width: 809px) {
+    footer {
+        padding: 60px 20px 30px;
+    }
+
+    footer::before {
+        left: 20px;
+        right: 20px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-top: 40px;
+    }
+}

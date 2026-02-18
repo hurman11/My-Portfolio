@@ -1,0 +1,286 @@
+/* ============================================
+   PROJECT DETAIL PAGES
+   ============================================ */
+
+/* --- Back Link --- */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    transition: color 0.3s ease, gap 0.3s var(--ease-out);
+}
+
+.back-link:hover {
+    color: var(--accent);
+    gap: 14px;
+}
+
+.back-link .arrow {
+    font-size: 18px;
+    transition: transform 0.3s var(--ease-out);
+}
+
+.back-link:hover .arrow {
+    transform: translateX(-4px);
+}
+
+/* --- Project Hero Banner --- */
+.project-hero-image {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.project-hero-image img {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+}
+
+.project-hero-gradient {
+    width: 100%;
+    height: 220px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-hero-gradient span {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+/* --- Project Meta Row --- */
+.project-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.project-meta .meta-label {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    padding: 6px 14px;
+    border: 1px solid rgba(103, 90, 197, 0.3);
+    border-radius: 100px;
+    background: rgba(103, 90, 197, 0.08);
+}
+
+/* --- Project Title (on detail page) --- */
+.project-detail-title {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 6vw, 72px);
+    line-height: 0.95;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    margin-bottom: 32px;
+    color: var(--text-primary);
+}
+
+/* --- Detail Sections --- */
+.detail-section {
+    margin-bottom: 40px;
+    max-width: 800px;
+}
+
+.detail-section-label {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    position: relative;
+    padding-left: 16px;
+}
+
+.detail-section-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.detail-section p {
+    font-family: var(--font-body);
+    font-size: clamp(16px, 1.3vw, 20px);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* --- Tech Stack Tags --- */
+.detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.detail-tag {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    padding: 8px 18px;
+    border-radius: 100px;
+    transition: all 0.3s var(--ease-out);
+}
+
+.detail-tag:hover {
+    border-color: var(--accent);
+    background: rgba(103, 90, 197, 0.1);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* --- Features List --- */
+.detail-features {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.detail-features li {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-left: 24px;
+    position: relative;
+    transition: padding-left 0.3s var(--ease-out);
+}
+
+.detail-features li:hover {
+    padding-left: 30px;
+}
+
+.detail-features li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* --- Screenshot Gallery (Placeholder) --- */
+.detail-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.gallery-placeholder {
+    height: 180px;
+    border-radius: 12px;
+    border: 1px dashed var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease;
+}
+
+.gallery-placeholder:hover {
+    border-color: var(--accent);
+}
+
+.gallery-placeholder span {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dark);
+}
+
+/* --- Placeholder Page Content --- */
+.placeholder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 300px;
+    gap: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 60px 40px;
+}
+
+.placeholder-content h3 {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.placeholder-content p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--text-dark);
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+/* ============================================
+   RESPONSIVE — Project Detail Pages
+   ============================================ */
+@media (max-width: 809px) {
+    .back-link {
+        margin-bottom: 40px;
+    }
+
+    .project-detail-title {
+        margin-bottom: 36px;
+    }
+
+    .project-hero-image {
+        margin-bottom: 40px;
+    }
+
+    .project-hero-gradient {
+        height: 200px;
+    }
+
+    .detail-section {
+        margin-bottom: 40px;
+    }
+
+    .detail-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .placeholder-content {
+        padding: 40px 24px;
+        min-height: 220px;
+    }
+}

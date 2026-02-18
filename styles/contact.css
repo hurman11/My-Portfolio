@@ -1,0 +1,314 @@
+/* ============================================
+   CONTACT PAGE — Form & Interactions
+   ============================================ */
+
+/* --- Contact Layout --- */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 40px;
+}
+
+/* --- Contact Form --- */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* --- Form Group with Floating Label --- */
+.form-group {
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group:focus-within {
+    border-color: var(--accent);
+}
+
+.form-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: var(--font-ui);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-dark);
+    pointer-events: none;
+    transition: all 0.3s var(--ease-out);
+    transform-origin: left;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-primary);
+    padding: 4px 0;
+    caret-color: var(--accent);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Floating label active state */
+.form-group input:focus+label,
+.form-group input:not(:placeholder-shown)+label,
+.form-group textarea:focus+label,
+.form-group textarea:not(:placeholder-shown)+label {
+    transform: translateY(-24px) scale(0.75);
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* --- Validation States --- */
+.form-group.error {
+    border-color: #ef4444;
+}
+
+.form-group.error label {
+    color: #ef4444;
+}
+
+.form-group .error-message {
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+    font-family: var(--font-ui);
+    font-size: 12px;
+    color: #ef4444;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: all 0.3s ease;
+}
+
+.form-group.error .error-message {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-group.success {
+    border-color: #22c55e;
+}
+
+/* --- Submit Button --- */
+.submit-btn {
+    align-self: flex-start;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background: var(--accent);
+    padding: 16px 48px;
+    border: none;
+    border-radius: 100px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s var(--ease-out),
+        box-shadow 0.3s var(--ease-out);
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent-hover), #9b8fe8);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: inherit;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(103, 90, 197, 0.3);
+}
+
+.submit-btn:hover::before {
+    opacity: 1;
+}
+
+.submit-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* --- Loading State --- */
+.submit-btn.loading {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.submit-btn.loading span {
+    opacity: 0;
+}
+
+.submit-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    z-index: 2;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* --- Success Message --- */
+.form-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.form-success.show {
+    display: flex;
+}
+
+.form-success .check-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #22c55e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #fff;
+    animation: popIn 0.5s var(--ease-out);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+    }
+
+    70% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.form-success h3 {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.form-success p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+/* --- Contact Info Side Panel --- */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 10px;
+}
+
+.contact-info-block h4 {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.contact-info-block p,
+.contact-info-block a {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.contact-info-block a:hover {
+    color: var(--accent);
+}
+
+/* --- Leaflet Map --- */
+.map-container {
+    width: 100%;
+    height: 280px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    position: relative;
+    margin-top: 20px;
+}
+
+/* Map fills its container */
+#contactMap {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Dark theme filter — inverts the bright OSM tiles */
+    filter: invert(100%) hue-rotate(180deg) brightness(0.85) contrast(1.2);
+}
+
+/* Fix Leaflet popup text after invert filter */
+#contactMap .leaflet-popup-content-wrapper,
+#contactMap .leaflet-popup-tip {
+    filter: invert(100%) hue-rotate(180deg);
+}
+
+/* Remove default Leaflet outlines for clean look */
+#contactMap .leaflet-control-zoom a {
+    background: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* ============================================
+   RESPONSIVE — Contact
+   ============================================ */
+@media (max-width: 809px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

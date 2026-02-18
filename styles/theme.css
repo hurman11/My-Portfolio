@@ -1,0 +1,395 @@
+/* ============================================
+   THEME SYSTEM — Dark / Light Mode
+   ============================================
+   Default = dark mode (variables in :root via global.css)
+   Light mode = activated by adding class "light" on <html>
+   ============================================ */
+
+/* ==========================
+   1. LIGHT MODE CSS VARIABLES
+   ========================== */
+html.light {
+    --bg-primary: #f5f5f7;
+    --bg-secondary: #ffffff;
+    --bg-card: #f0f0f2;
+    --bg-overlay: rgba(255, 255, 255, 0.92);
+
+    --text-primary: #1a1a1a;
+    --text-secondary: #333333;
+    --text-muted: #666666;
+    --text-dim: #888888;
+    --text-dark: #aaaaaa;
+
+    --accent: #5a4eb8;
+    --accent-hover: #6b5fc9;
+
+    --border-color: rgba(0, 0, 0, 0.1);
+    --border-light: rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================
+   2. SMOOTH THEME TRANSITION
+   ========================== */
+body,
+header,
+.menu-overlay,
+footer,
+.project-card,
+.project-info,
+.lets-talk,
+.form-group,
+.form-group input,
+.form-group textarea,
+.contact-info-block p,
+.contact-info-block a,
+.detail-section p,
+.detail-tag,
+.detail-features li,
+.back-link,
+.submit-btn {
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease;
+}
+
+/* ==========================
+   3. LIGHT MODE OVERRIDES
+   ========================== */
+
+/* --- Vignette: hide in light mode --- */
+html.light .vignette {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+/* --- Cursor dot --- */
+html.light .cursor {
+    background-color: #1a1a1a;
+}
+
+/* --- Header glass background --- */
+html.light header.scrolled {
+    background-color: rgba(245, 245, 247, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* --- Header dots (menu toggle) --- */
+html.light .dot {
+    background-color: #1a1a1a;
+}
+
+/* --- Menu toggle hover --- */
+html.light .menu-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* --- "Let's Talk" CTA pill --- */
+html.light .lets-talk {
+    color: #1a1a1a;
+}
+
+html.light .lets-talk::before {
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* --- Menu overlay --- */
+html.light .menu-overlay {
+    background: rgba(245, 245, 247, 0.96);
+}
+
+html.light .menu-item {
+    color: #1a1a1a;
+    -webkit-text-stroke-color: #1a1a1a;
+}
+
+html.light .menu-footer span {
+    color: #666666;
+}
+
+/* --- Hero section --- */
+html.light .hero::before {
+    background: radial-gradient(ellipse at center,
+            rgba(90, 78, 184, 0.06) 0%,
+            transparent 70%);
+}
+
+html.light .hero-subtitle {
+    color: #666666;
+}
+
+html.light .hero-cta {
+    color: #1a1a1a;
+}
+
+html.light .hero-cta .cta-line {
+    background: #1a1a1a;
+}
+
+/* --- Project cards --- */
+html.light .project-card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+html.light .project-card:hover {
+    border-color: rgba(90, 78, 184, 0.25);
+}
+
+html.light .project-card a {
+    color: inherit;
+}
+
+html.light .project-info h2 {
+    color: #1a1a1a;
+}
+
+html.light .project-info p {
+    color: #555555;
+}
+
+html.light .project-card:hover .project-info::after {
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.4) 100%);
+}
+
+/* --- About preview section --- */
+html.light .about-preview h2 {
+    color: #1a1a1a;
+}
+
+html.light .about-preview p {
+    color: #555555;
+}
+
+html.light .about-link {
+    color: #1a1a1a;
+}
+
+html.light .about-link .link-line {
+    background: #1a1a1a;
+}
+
+/* --- Footer --- */
+html.light footer {
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html.light .footer-cta h2 {
+    color: #1a1a1a;
+}
+
+html.light .footer-cta p {
+    color: #555555;
+}
+
+html.light .footer-profile .name {
+    color: #1a1a1a;
+}
+
+html.light .footer-bottom span,
+html.light .footer-bottom a {
+    color: #888888;
+}
+
+html.light .social-link {
+    color: #555555;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+html.light .social-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(90, 78, 184, 0.06);
+}
+
+/* --- Page common (about, contact) --- */
+html.light .page-title {
+    color: #1a1a1a;
+}
+
+html.light .section-label {
+    color: #666666;
+}
+
+html.light .content-block p {
+    color: #444444;
+}
+
+html.light .exp-item {
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+html.light .exp-date {
+    color: #888888;
+}
+
+html.light .skill-tag {
+    background: rgba(90, 78, 184, 0.08);
+    color: #444444;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+html.light .value-item h4 {
+    color: #1a1a1a;
+}
+
+/* --- Contact page --- */
+html.light .form-group label {
+    color: #999999;
+}
+
+html.light .submit-btn {
+    color: #ffffff;
+}
+
+html.light .map-container {
+    background: #f0f0f2;
+}
+
+/* Map: remove invert filter in light mode */
+html.light #contactMap {
+    filter: none;
+}
+
+html.light #contactMap .leaflet-popup-content-wrapper,
+html.light #contactMap .leaflet-popup-tip {
+    filter: none;
+}
+
+/* --- Project detail pages --- */
+html.light .project-detail-title {
+    color: #1a1a1a;
+}
+
+html.light .project-meta .meta-label {
+    border-color: rgba(90, 78, 184, 0.25);
+    background: rgba(90, 78, 184, 0.06);
+}
+
+html.light .detail-section-label {
+    color: #666666;
+}
+
+html.light .detail-tag {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #444444;
+}
+
+html.light .detail-tag:hover {
+    background: rgba(90, 78, 184, 0.08);
+    color: #1a1a1a;
+}
+
+html.light .gallery-placeholder {
+    border-color: rgba(0, 0, 0, 0.12);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+/* --- Placeholder coming soon card --- */
+html.light .detail-section .placeholder-message {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+/* --- Scrollbar overrides (webkit) --- */
+html.light ::-webkit-scrollbar-track {
+    background: #f0f0f2;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================
+   4. TOGGLE BUTTON STYLES
+   ========================== */
+.theme-toggle {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s var(--ease-out);
+    z-index: 1001;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.08);
+}
+
+html.light .theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Icon sizing and transitions */
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    transition:
+        opacity 0.35s ease,
+        transform 0.45s var(--ease-out);
+}
+
+/* Sun icon — visible in dark mode */
+.theme-toggle .icon-sun {
+    color: #e6e6e6;
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* Moon icon — hidden in dark mode */
+.theme-toggle .icon-moon {
+    color: #e6e6e6;
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+}
+
+/* Light mode: swap icons */
+html.light .theme-toggle .icon-sun {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+}
+
+html.light .theme-toggle .icon-moon {
+    color: #1a1a1a;
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* ==========================
+   5. RESPONSIVE
+   ========================== */
+@media (max-width: 809px) {
+    .theme-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .theme-toggle svg {
+        width: 18px;
+        height: 18px;
+    }
+}

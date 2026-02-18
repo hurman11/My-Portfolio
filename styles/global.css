@@ -1,0 +1,200 @@
+/* ============================================
+   GLOBAL STYLES — Dark Premium Portfolio
+   Based on bdsn.club design analysis
+   ============================================ */
+
+/* --- CSS Variables / Design Tokens --- */
+:root {
+    /* Typography — injected by next/font via CSS variables on <html> */
+    /* --font-heading, --font-body, --font-ui are set by next/font/google in layout.js */
+
+    /* Colors — Dark Theme */
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #121212;
+    --bg-card: #000000;
+    --bg-overlay: rgba(0, 0, 0, 0.92);
+
+    --text-primary: #f2f2f2;
+    --text-secondary: #e6e6e6;
+    --text-muted: #999999;
+    --text-dim: #666666;
+    --text-dark: #4d4d4d;
+
+    --accent: #675ac5;
+    --accent-hover: #7b6fd4;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-light: rgba(255, 255, 255, 0.06);
+
+    /* Cursor */
+    --cursor-size: 12px;
+
+    /* Transitions */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Allow selection in form inputs */
+input,
+textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: auto;
+    /* Lenis handles smooth scroll */
+}
+
+html.lenis {
+    height: auto;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    cursor: none;
+    line-height: 1.5;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: none;
+}
+
+button {
+    cursor: none;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+/* Hide default cursor on ALL elements — custom circle cursor is used instead */
+*,
+*::before,
+*::after {
+    cursor: none !important;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+/* --- Selection --- */
+::selection {
+    background-color: var(--accent);
+    color: #fff;
+}
+
+/* --- Scrollbar (thin, dark) --- */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-dark);
+    border-radius: 2px;
+}
+
+/* --- Subtle Vignette Overlay --- */
+.vignette {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    background: radial-gradient(ellipse at center,
+            transparent 50%,
+            rgba(0, 0, 0, 0.4) 100%);
+}
+
+/* --- Custom Cursor --- */
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    background-color: #ffffff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s var(--ease-out),
+        height 0.3s var(--ease-out),
+        opacity 0.3s var(--ease-out);
+}
+
+.cursor.hovered {
+    width: 50px;
+    height: 50px;
+    opacity: 0.6;
+}
+
+/* --- Page Transition Wrapper --- */
+#app {
+    opacity: 1;
+}
+
+/* --- Utility Classes --- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* --- Responsive Font Scaling --- */
+@media (max-width: 809px) {
+    body {
+        cursor: auto;
+    }
+
+    .cursor {
+        display: none;
+    }
+
+    a,
+    button {
+        cursor: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        cursor: auto !important;
+    }
+}
